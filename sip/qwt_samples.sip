@@ -44,9 +44,12 @@ public:
     double value;
     QVector<double> set;
 };
-/*
+
 class QwtOHLCSample
 {
+%TypeHeaderCode
+#include <qwt_samples.h>
+%End
 public:
     QwtOHLCSample( double time = 0.0,
         double open = 0.0, double high = 0.0,
@@ -69,4 +72,4 @@ public:
     //! Closing price
     double close;
 };
-*/
+

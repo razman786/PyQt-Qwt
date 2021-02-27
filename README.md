@@ -1,14 +1,10 @@
 # PyQt-Qwt
-Python PyQt wrapper for Qwt6
+Python PyQt wrapper for Qwt6.1
 
-The code is tested for python2/3 and Qt4/5.
-oscilloscope.py is unfinished.
-animation.py works only for qt5.
+The code is tested for python3 and Qt5.
 All the other examples have been tested to work on 
 Debian Linux.
 The qwt include files must be patched to build PyQt-Qwt.
-
-The code is not tested properly for Qt4.
 
 
 
