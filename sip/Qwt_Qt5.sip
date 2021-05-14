@@ -13,7 +13,7 @@
 %Timeline {Qwt_6_1_2 Qwt_6_1_3 Qwt_6_1_4 Qwt_6_1_5 Qwt_6_1_6}
 
 %Import QtCore/QtCoremod.sip
-//typedef unsigned long size_t;
+typedef unsigned long size_t;
 %Import QtGui/QtGuimod.sip
 %Import QtOpenGL/QtOpenGLmod.sip
 %Import QtSvg/QtSvgmod.sip
