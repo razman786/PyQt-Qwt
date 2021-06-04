@@ -1,0 +1,64 @@
+pyqt-qwt (2.00.00-1build1) focal; urgency=medium
+
+  * New upstream release
+
+ -- Rahim Lakhoo <razman786@gmail.com>  Thu, 13 May 2021 15:42:00 +0100
+
+pyqt-qwt (1.02.00-1build2) focal; urgency=medium
+
+  * No-change rebuild to drop python3.7.
+
+ -- Matthias Klose <doko@ubuntu.com>  Tue, 18 Feb 2020 10:22:11 +0100
+
+pyqt-qwt (1.02.00-1build1) focal; urgency=medium
+
+  * No-change rebuild to build with python3.8.
+
+ -- Matthias Klose <doko@ubuntu.com>  Fri, 18 Oct 2019 18:33:30 +0000
+
+pyqt-qwt (1.02.00-1) unstable; urgency=medium
+
+  * New upstream release
+  * Bump standards version to 4.3.0.2, no changes needed
+  * Add patch fix_ftbs. Needed for new sip version
+
+ -- Gudjon I. Gudjonsson <gudjon@gudjon.org>  Sat, 23 Feb 2019 14:10:11 +0100
+
+pyqt-qwt (1.01.00-3) unstable; urgency=medium
+
+  * Future proof python3 installs. Thanks to Mattia Rizzolo (Closes: #910080)
+
+ -- Gudjon I. Gudjonsson <gudjon@gudjon.org>  Sun, 07 Oct 2018 09:07:48 +0200
+
+pyqt-qwt (1.01.00-2) unstable; urgency=medium
+
+  * Fix typo in doc package description
+  * Fix compilation for all supported python3 versions (Closes: #909732)
+
+ -- Gudjon I. Gudjonsson <gudjon@gudjon.org>  Sun, 30 Sep 2018 16:02:18 +0200
+
+pyqt-qwt (1.01.00-1) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * d/control: Remove ancient X-Python3-Version field
+
+  [ Gudjon I. Gudjonsson ]
+  * New upstream release
+  * Bump sip build-dependencies to 4.19.11, following configure.py.
+  * Configure with --no-dist-info for now, mk_distinfo.py does not work
+    well with DESTDIR yet.
+  * Update debhelper compat level to 11.
+  * Bump Standards-Version to 4.2.1, no changes needed.
+
+ -- Gudjon I. Gudjonsson <gudjon@gudjon.org>  Sat, 01 Sep 2018 13:32:30 +0200
+
+pyqt-qwt (1.00.00-1) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * d/control: Remove trailing whitespaces
+  * d/control: Add Vcs-* field
+
+  [ Gudjon I. Gudjonsson ]
+  * Initial release (Closes: #891707)
+
+ -- Gudjon I. Gudjonsson <gudjon@gudjon.org>  Wed, 25 Apr 2018 11:56:49 +0200

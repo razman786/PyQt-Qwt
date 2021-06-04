@@ -1,0 +1,57 @@
+#!/usr/bin/make -f
+# See debhelper(7) (uncomment to enable)
+# output every command that modifies files on the build system.
+#export DH_VERBOSE = 1
+
+PY3VERS := $(shell py3versions -vs)
+
+%:
+	dh $@ --with python3
+
+override_dh_auto_configure:
+	cp -a /usr/include/qwt header
+	cp header/qwt_*.h header/qwt/
+	set -e ;\
+	for py in $(PY3VERS) ; do \
+		mkdir pybuild$$py; \
+		cd pybuild$$py  && ln -s ../sip .; \
+		QT_SELECT=qt5 python$$py ../configure.py \
+			--qwt-incdir=../header/qwt \
+			--qwt-libdir=/usr/lib \
+			--qwt-lib=qwt-qt5 --verbose \
+			--no-dist-info; \
+		cd ..; \
+	done
+
+override_dh_auto_build:
+	set -e ;\
+	for py in $(PY3VERS) ; do \
+		cd pybuild$$py  && $(MAKE); \
+		cd ..; \
+	done
+
+override_dh_auto_install:
+	set -e ;\
+	for py in $(PY3VERS); do \
+		cd pybuild$$py && $(MAKE) -j1 install DESTDIR=$(CURDIR)/debian/tmp AM_UPDATE_INFO_DIR=no INSTALL_ROOT=$(CURDIR)/debian/tmp; \
+		cd ..;\
+		mv $(CURDIR)/debian/tmp/usr/lib/python3 \
+		   $(CURDIR)/debian/tmp/usr/lib/python$$py;\
+	done
+
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -rf pybuild*
+#	rm -f installed.txt
+	rm -rf header/qwt
+#	rm -rf Qwt
+#	rm -f .qmake.stash
+#	rm -f Makefile
+#	rm -f Qwt.*
+
+override_dh_compress-indep:
+	dh_compress --exclude=.py
+
+override_dh_strip:
+	dh_strip --no-automatic-dbgsym
